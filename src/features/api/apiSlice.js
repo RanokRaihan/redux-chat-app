@@ -13,8 +13,8 @@ const baseQuery = fetchBaseQuery({
 });
 export const apiSlice = createApi({
   reducerPath: "api",
-  baseQuery: async (arg, api, exTraOptions) => {
-    const result = await baseQuery(arg, api, exTraOptions);
+  baseQuery: async (args, api, extraOptions) => {
+    const result = await baseQuery(args, api, extraOptions);
     if (result?.error?.status === 401) {
       api.dispatch(userLoggedOut());
       localStorage.clear();

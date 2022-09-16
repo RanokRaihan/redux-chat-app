@@ -75,6 +75,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
     getConversation: builder.query({
       query: ({ userEmail, partnerEmail }) =>
         `/conversations?participants_like=${userEmail}-${partnerEmail}&participants_like=${partnerEmail}-${userEmail}`,
+      providesTags: ["conversation"],
     }),
 
     updateConversation: builder.mutation({

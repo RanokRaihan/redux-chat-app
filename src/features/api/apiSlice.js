@@ -3,7 +3,7 @@ import { userLoggedOut } from "../auth/authSlice";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: process.env.REACT_APP_BASE_URL,
-  prepareHeaders: async (headers, { getState, endpoint }) => {
+  prepareHeaders: async (headers, { getState }) => {
     const token = getState()?.auth?.accessToken;
     if (token) {
       headers.set("Authorization", `Bearer ${token}`);
@@ -21,7 +21,7 @@ export const apiSlice = createApi({
     }
     return result;
   },
-  tagTypes: [],
+  tagTypes: ["user", "conversation"],
   endpoints: (builder) => ({
     //enpoints will be injected from [authApi]
   }),

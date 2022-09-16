@@ -9,4 +9,3 @@ const conversationsSlice = createSlice({
 });
 
 export default conversationsSlice.reducer;
-export const {} = conversationsSlice.actions;

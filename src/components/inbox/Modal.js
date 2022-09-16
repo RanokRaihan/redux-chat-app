@@ -65,10 +65,15 @@ export default function Modal({ open, control }) {
       setShowTick(true);
       //check conversation existence (manual dispatch)
       dispatch(
-        conversationsApi.endpoints.getConversation.initiate({
-          userEmail: loggedinEmail,
-          partnerEmail: participant[0].email,
-        })
+        conversationsApi.endpoints.getConversation.initiate(
+          {
+            userEmail: loggedinEmail,
+            partnerEmail: participant[0].email,
+          },
+          {
+            forceRefetch: true,
+          }
+        )
       )
         .unwrap()
         .then((data) => {
